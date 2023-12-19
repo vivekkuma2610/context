@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import CartComponent from './components/CartComponent';
-import Total from './components/Total';
+//import Total from './components/Total';
 import {useState } from 'react'
 
 function App() {
