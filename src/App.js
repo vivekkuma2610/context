@@ -1,21 +1,23 @@
-//import logo from './logo.svg';
-import './App.css';
-import CartComponent from './components/CartComponent';
-//import Total from './components/Total';
-import {useState } from 'react'
+import React from "react";
+import ProductList from "./Components/ProductList";
+import Navbar from "./Components/Navbar";
+import { Routes, Route } from 'react-router-dom';
+import CartState from './Context/CartState'
+import Cart from "./Components/Cart";
+import Footer from "./Components/Footer";
 
 function App() {
-    
-  const[totalQuantity,setTotalQuantityContext] = useState(5)
-
-  const [quantity,setQuantity]  = useState(1)
-
-  const [totalPrice,setTotalPrice]  = useState(3476)
-
   return (
-    <div className="App">
-     <CartComponent totalPrice={totalPrice}setTotalPrice={setTotalPrice}  quantity={quantity} setQuantity = {setQuantity} totalQuantity={totalQuantity} setTotalQuantityContext={setTotalQuantityContext}/>
-    </div>
+    <>
+      <CartState>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </CartState>
+      <Footer />
+    </>
   );
 }
 
